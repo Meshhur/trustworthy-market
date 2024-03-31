@@ -1,0 +1,43 @@
+.productUpdate {
+
+}
+
+.change-product {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* gap: 10px; */
+}
+
+.update-btn {
+    margin-top: 10px;
+    max-width: 160.3px;
+}
+
+.update-product-row {
+    display: flex;
+}
+
+.change-card {
+    height: auto;
+}
+
+.change-form {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+}
+
+.update-product-title {
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
+}
+
+
+
+.dropdowns {
+    display: flex;
+    column-gap: 6px;
+}

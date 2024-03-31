@@ -1,0 +1,92 @@
+/*Resetting styles*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+    background-color: #F3F4F6;
+}
+input,button,textarea{font-family:inherit;}
+
+p {
+    margin: 0;
+}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+/*--------------------*/
+
+.device-name{
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.device-info {
+    background-color: rgb(243, 243, 243);
+    margin: 3px 0;
+    padding: 8px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.device-info :last-child{
+    font-weight: 100;
+}
+
+.border-style-info :first-child {
+    border-radius: 10px 10px 0 0;
+}
+
+.border-style-info :last-child {
+    border-radius: 0 0 10px 10px;
+}
+
+.price-buy {
+    display: flex;
+    margin: 8px 0;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.buy {
+    width: 158px;
+    border-radius: 6px;
+    height: 40px;
+    background-color: #ec6323;
+}
+
+.buy svg{
+    width: 22px;
+    height: 22px;
+}
