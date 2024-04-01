@@ -15,17 +15,21 @@ const generateJwt = (id, email, role) => {
 }
 class UserController {
     async registration(req, res, next) {
-        const { email, password, role } = req.body
+        const { email, password } = req.body
+        var role = "USER"
         if (!email || !password) {
-                
+            return next(ApiError.badRequest('Invalid entry'))
         }
 
         const candidate = await models.User.findOne({ where: { email } })
         if (candidate) {
             return next(ApiError.badRequest("Email is being used"))
         }
-
-        const hashPassword = await bcrypt.hash(password, 6)
+        
+        if (password == process.env.ONLY_ADMIN) {
+            role = "ADMIN"
+        }
+        const hashPassword = await bcrypt.hash(password, 5)
         const user = await models.User.create({ email, role, password: hashPassword })
         const basket = await models.Basket.create({ userId: user.id })
         const token = generateJwt(user.id, user.email, user.role)
