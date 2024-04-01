@@ -9,3 +9,5 @@ router.post("/login", UserController.login)
 router.get("/auth", auth ,UserController.check)
 
 export default router;
+
+

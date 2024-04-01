@@ -82,7 +82,7 @@ class DeviceController {
             if (brandId) updatedData.brandId = brandId;
             if (typeId) updatedData.typeId = typeId;
 
-            if (req.files?.img) {
+            if (req.files.img) {
                 const { img } = req.files;
                 const fileName = `${uuidv4()}.jpg`;
                 const filePath = path.resolve(__dirname, "..", "static", fileName);
