@@ -35,7 +35,7 @@ const FixedNav = observer(() => {
         user.setUser({})
         user.setIsAuth(false)
         user.setIsBasket(false)
-        // localStorage.removeItem("token")
+        localStorage.removeItem("token")
         navigate('/')
     }
 

@@ -16,7 +16,16 @@ export const login = async (email, password) => {
 }
 
 export const check = async () => {
-    const {data} = await $authHost.get("api/user/auth")
-    localStorage.setItem("token", data.token)
-    return jwtDecode(data.token)
-}
+    try {
+        console.log("Check etjek bolyas");
+        const response = await $authHost.get("api/user/auth");
+        console.log("Response baarde", response);
+        return response;
+    } catch (error) {
+        console.log("Error", error);
+        // If you need to return the error response:
+        return error.response;
+        // Or, if you prefer, you can throw the error to be handled by the caller
+        // throw error;
+    }
+};
