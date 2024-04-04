@@ -33,12 +33,12 @@ const DevicePage = observer(() => {
 
     return (
         <Container className='my-3'>
-            <Row>
-                <Card className='p-4 flex-row'>
-                    <Col md={5} className='border border-primary py-4 d-flex flex-row justify-content-center'>
-                        <Image width={420} height={410} src={"http://localhost:7000/" + device.img} />
+            <Row className='d-flex justify-content-center'>
+                <Card className='p-4 flex-row device-page-card'>
+                    <Col md={4} className='img-container border border-primary py-4 d-flex flex-row justify-content-center'>
+                        <Image className='device-img' width={420} height={410} src={"http://localhost:7000/" + device.img} />
                     </Col>
-                    <Col md={7} className='d-flex flex-column px-5'>
+                    <Col md={8} className='full-info d-flex flex-column'>
                         <div className='pb-1'>
                             <h2 className='device-name'>{device.name}</h2>
                         </div>

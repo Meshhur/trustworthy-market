@@ -8,6 +8,7 @@ import { Spinner } from "react-bootstrap";
 import Header from "./pages/Header.js";
 import FixedNav from "./components/FixedNav.js";
 import { REGISTRATION_ROUTE } from "./utils/consts.js";
+import { jwtDecode } from "jwt-decode";
 
 const App = observer(() => {
     const { user } = useContext(Context)
@@ -16,18 +17,14 @@ const App = observer(() => {
 
     useEffect(() => {
         check().then(res => {
-            console.log("gelyan res", res);
             if (res.status > 205) {
-                console.log("Error barde");
                 localStorage.removeItem("token")
                 navigate(REGISTRATION_ROUTE)
             } else {
-                user.setUser(res.data.token)
+                user.setUser(jwtDecode(res.data.token))
                 user.setIsAuth(true)
                 localStorage.setItem("token", res.data.token)
-                
             }
-          
         }).finally(() => setLoading(false))
     }, [])
     if (!user) {

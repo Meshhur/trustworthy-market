@@ -19,3 +19,7 @@ export default function (req, res, next) {
         return res.status(401).json({message: "Not authorized"})
     }
 }
+
+// CREATE DATABASE trustdata;
+// CREATE ROLE my_app_role WITH LOGIN PASSWORD 'some_password';
+// GRANT ALL PRIVILEGES ON DATABASE "my_app" TO my_app_role;static-page-serve

@@ -10,7 +10,7 @@ import { addToBasket } from '../http/deviceAPI.js'
 const DeviceItem = observer(({ device }) => {
     const { user } = useContext(Context)
     const navigate = useNavigate()
-
+    console.log(user);
     const [mdScreen, setMdScreen] = useState(getMdScreen(window.innerWidth));
 
     function getMdScreen(screenSize) {
@@ -77,7 +77,7 @@ const DeviceItem = observer(({ device }) => {
                         </button>
                     </div>
                 </div>
-                {user.user.role === "ADMIN" ?
+                {user?.user?.role === "ADMIN" ?
                     <Button variant='outline-dark' onClick={() => navigate(UPDATE_PRODUCT + "/" + device.id)}>
                         Update this item
                     </Button>
