@@ -3,11 +3,11 @@ import axios from "axios";
 
 // env.config()
 const $host = axios.create({
-    baseURL: "http://localhost:7000/",
+    baseURL: "https://api.dond.fun:7000/",
 })
 
 const $authHost = axios.create({
-    baseURL: "http://localhost:7000/",
+    baseURL: "https://api.dond.fun:7000/",
 })
 
 const authInterceptor = config => {

@@ -5,7 +5,7 @@ import { Context } from "../index.js"
 import "../css/productLook.css"
 import { REGISTRATION_ROUTE, UPDATE_PRODUCT } from '../utils/consts.js'
 import { observer } from 'mobx-react-lite'
-import { addToBasket } from '../http/deviceAPI.js'
+import { addToBasket, deleteTheDevice } from '../http/deviceAPI.js'
 
 const DeviceItem = observer(({ device }) => {
     const { user } = useContext(Context)
@@ -48,6 +48,14 @@ const DeviceItem = observer(({ device }) => {
         }
     }
 
+    const deleteItem = async () => {
+        try {
+            await deleteTheDevice(device.id)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return (
         <Col md={mdScreen} className='product'>
             <Card className='custom-card'>
@@ -78,9 +86,14 @@ const DeviceItem = observer(({ device }) => {
                     </div>
                 </div>
                 {user?.user?.role === "ADMIN" ?
-                    <Button variant='outline-dark' onClick={() => navigate(UPDATE_PRODUCT + "/" + device.id)}>
-                        Update this item
-                    </Button>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
+                        <Button variant='outline-success' onClick={() => navigate(UPDATE_PRODUCT + "/" + device.id)}>
+                            Update this item
+                        </Button>
+                        <Button variant='outline-danger' onClick={deleteItem}>
+                            Delete this item
+                        </Button>
+                    </div>
                     :
                     <br />
                 }

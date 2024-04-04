@@ -49,6 +49,11 @@ export const updateTheDevice = async (id, formData) => {
     return data
 }
 
+export const deleteTheDevice = async (id) => {
+    const { data } = await $authHost.delete("api/device/" + id)
+    return data
+}
+
 export const addToBasket = async (basketId, deviceId) => {
     const { data } = await $host.post("api/basket/", { basketId, deviceId });
     return data
@@ -60,13 +65,11 @@ export const getBasketItems = async (basketId) => {
 }
 
 export const removeItemFromBasket = async (basketId, deviceId) => {
-    // This assumes you have an endpoint to delete a single device from the basket
     const { data } = await $host.delete(`api/basket/${basketId}/device/${deviceId}`);
     return data;
 };
 
 export const clearBasket = async (basketId) => {
-    // This assumes you have an endpoint to clear the basket
     const { data } = await $host.delete(`api/basket/${basketId}/clear`);
     return data;
 };

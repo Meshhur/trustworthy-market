@@ -118,6 +118,15 @@ class DeviceController {
             return next(ApiError.badRequest(error.message));
         }
     }
+
+    async deleteTheDevice(req, res) {
+        try {
+            const { id } = req.params
+            await models.Device.destroy({ where: { id: id } })
+        } catch (error) {
+            return next(ApiError.badRequest(error.message));
+        }
+    }
 }
 
 export default new DeviceController();
